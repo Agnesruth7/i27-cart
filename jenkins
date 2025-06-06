@@ -2,5 +2,5 @@ pipeline
 {
 
 kubernetes
-file="test file"
+file="my name is agnes"
 }
