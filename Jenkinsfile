@@ -3,19 +3,18 @@ pipeline{
     stages {
         stage ('FirstStage') {
             steps {
-                echo "First Pipleline"
-                sh "hostname -i"
+                echo "coming from build stage"
+            }
+        }
+        stage('groovystage'){
+            steps{
+                script{
+                // to define a variable
+                def course = "Devops"
+                println("Thanks for enrolling ${course} course")
+                }
+            }
+        }
 
-            }
-        }
-        stage ('SecondStage') {
-            agent {
-                label 'java-slave'
-            }
-            steps {
-                echo "Running on Java slave"
-                sh "hostname -i"
-            }
-        }
     }
 }
