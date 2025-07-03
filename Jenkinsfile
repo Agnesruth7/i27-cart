@@ -11,7 +11,12 @@ pipeline{
                 script{
                 // to define a variable
                 def course = "Devops"
-                println("Thanks for enrolling ${course} course")
+                if (course == "Devops")
+                println("Thanks for enrolling")
+                
+                else 
+                println("Do enroll")
+                //println("Thanks for enrolling ${course} course")
                 }
             }
         }
