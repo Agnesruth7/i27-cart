@@ -10,7 +10,7 @@ pipeline{
             steps{
                 script{
                 // to define a variable
-                def course = "Devops"
+                def course = "k8s"
                 if (course == "Devops")
                 println("Thanks for enrolling")
                 
