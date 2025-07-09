@@ -1,25 +1,26 @@
-pipeline{
-    agent any
+pipeline {
+    agent {
+        label 'java-slave'
+    }
+    tools {
+        maven 'Maven-3.8.8' // the same name should be configured under tools section
+    }
     stages {
-        stage ('FirstStage') {
+        stage ("Maven") {
             steps {
-                echo "coming from build stage"
+                echo 'Hello, welcome to Maven section'
+                sh 'mvn --version'
             }
         }
-        stage('groovystage'){
-            steps{
-                script{
-                // to define a variable
-                def course = "k8s"
-                if (course == "Devops")
-                println("Thanks for enrolling")
-                
-                else 
-                println("Do enroll")
-                //println("Thanks for enrolling ${course} course")
-                }
+        stage ("cartmaven") {
+            // this tool section , will take presedence
+            tools {
+                jdk 'JDK-17'
+            }
+            steps {
+                echo 'Hello, welcome to CartMaven section'
+                sh 'mvn --version'
             }
         }
-
     }
 }
