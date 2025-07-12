@@ -14,13 +14,13 @@ Pipeline{
         stage ('proddeploy')
         {
             when {
-                allOf{
+                allOf {
                      branch 'production'
                      environment name:'deploy_to', value: 'production'
                 }
                 
             }
-            steps{
+            steps {
                 echo " deploying to prod  "
             }
         }
