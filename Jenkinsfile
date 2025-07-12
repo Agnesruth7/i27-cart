@@ -1,18 +1,27 @@
-pipeline {
+Pipeline{
     agent{
         label 'java-slave'
-
     }
-    environment {
-        Today_Day = 'Sunday'
+    environment{
+        deploy_to = 'production'
     }
     stages{
-        stage('Build Stage'){
-            when{
-                environment name: 'Today_Day', value: 'Saturday'
+        Stage('deploytodev'){
+            steps{
+                echo "Deploying to dev env"
+            }
+        }
+        stage ('proddeploy')
+        {
+            when {
+                allOf{
+                     branch 'production'
+                     environment name:'deploy_to', value: 'production'
+                }
+                
             }
             steps{
-                echo "When Example"
+                echo " deploying to prod  "
             }
         }
     }
