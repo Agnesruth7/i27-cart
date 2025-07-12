@@ -15,7 +15,7 @@ pipeline{
         {
             when {
                 allOf {
-                     branch 'production'
+                     branch 'main'
                      environment name:'deploy_to', value: 'production'
                 }
                 
