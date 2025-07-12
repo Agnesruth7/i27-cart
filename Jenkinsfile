@@ -4,7 +4,7 @@ pipeline {
 
     }
     environment {
-        Today_Day = 'Saturday'
+        Today_Day = 'Sunday'
     }
     stages{
         stage('Build Stage'){
