@@ -1,4 +1,4 @@
-Pipeline{
+pipeline{
     agent{
         label 'java-slave'
     }
@@ -6,7 +6,7 @@ Pipeline{
         deploy_to = 'production'
     }
     stages{
-        Stage('deploytodev'){
+        stage('deploytodev'){
             steps{
                 echo "Deploying to dev env"
             }
